@@ -1,0 +1,18 @@
+{
+  "name": "betterimagedata",
+  "version": "1.0.0",
+  "description": "BetterImageData for browser and node canvas",
+  "main": "BetterImageData.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphics",
+    "drawing",
+    "canvas",
+    "pixel",
+    "color"
+  ],
+  "author": "UnrealSecurity",
+  "license": "ISC"
+}
