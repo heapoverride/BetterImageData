@@ -163,7 +163,7 @@ class Color {
      * @param {String} hex #RRGGBBAA
      * @returns {Color}
      */
-    fromHex(hex) {
+    static fromHex(hex) {
         const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(hex);
         return m ? new Color(parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16), m[4] ? parseInt(m[4], 16) : 255) : new Color(0, 0, 0);
     }
@@ -173,10 +173,10 @@ class Color {
      * @returns {String}
      */
     toHex() {
-        const R = this._hex_value(Math.floor(255 * this.R));
-        const G = this._hex_value(Math.floor(255 * this.G));
-        const B = this._hex_value(Math.floor(255 * this.B));
-        const A = this._hex_value(Math.floor(255 * this.A));
+        const R = Color._hex_value(Math.floor(255 * this.R));
+        const G = Color._hex_value(Math.floor(255 * this.G));
+        const B = Color._hex_value(Math.floor(255 * this.B));
+        const A = Color._hex_value(Math.floor(255 * this.A));
         return "#" + R + G + B + A;
     }
 
@@ -187,7 +187,7 @@ class Color {
      * @param {*} V Value (0-255)
      * @returns {Color}
      */
-    fromHSV(H, S, V) {
+    static fromHSV(H, S, V) {
         let hh, p, q, t, ff, i, r, g, b;
 
         if (S <= 0.0) return [V, V, V];
@@ -245,7 +245,7 @@ class Color {
         return new Color(r, g, b);
     }
 
-    _hex_value(n) {
+    static _hex_value(n) {
         return ("0" + (Number(n).toString(16))).slice(-2).toUpperCase();
     }
 }
