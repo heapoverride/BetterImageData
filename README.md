@@ -20,9 +20,9 @@ const better = new BetterImageData(imageData.data, canvas.width, canvas.height);
 for (let y = 0; y < better.height; y++) {
     for (let x = 0; x < better.width; x++) {
         const color = better.get(x, y);
-        color.R = Math.round(Math.random()*255);
-        color.G = Math.round(Math.random()*255);
-        color.B = Math.round(Math.random()*255);
+        color.R = Math.round(Math.random() * 255);
+        color.G = Math.round(Math.random() * 255);
+        color.B = Math.round(Math.random() * 255);
         color.A = 255;
     }
 }
