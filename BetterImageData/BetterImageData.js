@@ -17,7 +17,7 @@ class BetterImageData {
         this.height = height;
 
         const data = new Array(height);
-        for (let y=0; y<height; y++) {
+        for (let y = 0; y < height; y++) {
             data[y] = new Array(width);
         }
 
@@ -41,20 +41,20 @@ class BetterImageData {
      */
     static fromImage(image) {
         let canvas;
-		
-		if (browser) {
-			canvas = document.createElement('canvas');
-			canvas.width = image.width;
-			canvas.height = image.height;
-		} else {
-			canvas = Canvas.createCanvas(image.width, image.height);
-		}
-		
+
+        if (browser) {
+            canvas = document.createElement('canvas');
+            canvas.width = image.width;
+            canvas.height = image.height;
+        } else {
+            canvas = Canvas.createCanvas(image.width, image.height);
+        }
+
         const ctx = canvas.getContext('2d');
         ctx.drawImage(image, 0, 0);
 
-        return new BetterImageData(ctx.getImageData(0, 0, 
-            image.width, image.height).data, 
+        return new BetterImageData(ctx.getImageData(0, 0,
+            image.width, image.height).data,
             image.width, image.height);
     }
 
@@ -127,9 +127,9 @@ class BetterImageData {
             const color = this.data[y][x];
 
             data[i] = color.R;
-            data[i+1] = color.G;
-            data[i+2] = color.B;
-            data[i+3] = color.A;
+            data[i + 1] = color.G;
+            data[i + 2] = color.B;
+            data[i + 3] = color.A;
 
             x += 1;
             if (x === this.width) {
@@ -193,7 +193,7 @@ class Color {
         if (S <= 0.0) return [V, V, V];
         hh = H;
 
-        if(hh >= 360.0) {
+        if (hh >= 360.0) {
             hh = 0.0;
         }
 
@@ -203,8 +203,8 @@ class Color {
         p = V * (1.0 - S);
         q = V * (1.0 - (S * ff));
         t = V * (1.0 - (S * (1.0 - ff)));
-    
-        switch(i) {
+
+        switch (i) {
             case 0:
                 r = V;
                 g = t;
@@ -246,7 +246,7 @@ class Color {
     }
 
     _hex_value(n) {
-        return  ("0"+(Number(n).toString(16))).slice(-2).toUpperCase();
+        return ("0" + (Number(n).toString(16))).slice(-2).toUpperCase();
     }
 }
 
